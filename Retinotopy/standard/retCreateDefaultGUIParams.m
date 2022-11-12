@@ -16,6 +16,12 @@ function params = retCreateDefaultGUIParams(curdata)
 % May, 2010, JW: Split off from retMenu
 
 
+% added parameters for to control external and internal devices.
+% added paramtere for response keys (otherwise trigger counts as subject's
+% response
+% Nov 2022, JWK
+
+
 
 if ~exist('curdata', 'var'), curdata = []; end
 
@@ -44,6 +50,10 @@ params.trigger         = 'Scanner triggers computer';
 params.triggerKey      = '5';
 params.skipSyncTests   = true; % tell PTB to skip sync tests
 params.doEyelink       = false; % do not use Eyelink by default
+params.responseDevice  = '932';
+params.keyboard        = 'Magic Keyboard';
+params.responseKeys    = {'1';'2';'3';'4';'6';'7';'8';'9'};
+
 
 % If we input params, then use this for all defined fields
 if ~isempty(curdata)
