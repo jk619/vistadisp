@@ -1,17 +1,17 @@
 function [params, stimulus] = retLoadEmoji(params, stimulus)
 
-emojiPth = fullfile(vistadispRootPath,'Applications2', 'Retinotopy', 'standard', 'emoji');
+emojiPth = fullfile(vistadispRootPath, 'Retinotopy', 'standard', 'emoji');
 d = dir(fullfile(emojiPth, '*.png'));
 
 assert(numel(d)>0)
 
-[x,y] = meshgrid(linspace(-1, 1, params.display.fixSizePixels));
+[x,y] = meshgrid(linspace(-1, 1, params.display.fixSizePixels/4));
 maskblob = 255*(x.^2+y.^2<1);
 
 for ii = 1:length(d)
     im = imread(fullfile(emojiPth, d(ii).name));
     im = im(7:121, 2:116,:);
-    im = imresize(im, [1 1]* params.display.fixSizePixels);
+    im = imresize(im, [1 1]* params.display.fixSizePixels/4);
     im(:,:,end+1) = maskblob;
     fixStimulus.images{ii} = im;
 end
