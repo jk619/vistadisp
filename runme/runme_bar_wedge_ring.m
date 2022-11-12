@@ -1,21 +1,21 @@
 tbUse vistadisp
-% runme for bar wedge ring
+% runme for bar wedge ring (NSD pRF design)
 % 300TRs
 
 %% 
  
-params = retCreateDefaultGUIParams;
-params.fixation = 'dot with grid';
-params.tr = 1;
-params.skipSyncTests = 0;
-params.calibration = 'CBI_Propixx';
-params.prescanDuration = 0;
-params.experiment  = 'experiment from file';
-params.doEyelink = false;
-params.period = 300;
-params.responseDevice      = '932';
-params.keyboard = 'Magic Keyboard';
-params.responseKeys        = {'1';'2';'3';'4';'6';'7';'8';'9'};
+params                      = retCreateDefaultGUIParams;
+params.fixation             = 'dot with grid';
+params.tr                   = 1;
+params.skipSyncTests        = 0;
+params.calibration          = 'CBI_Propixx';
+params.prescanDuration      = 0;
+params.experiment           = 'experiment from file';
+params.doEyelink            = false;
+params.period               = 300;
+params.responseDevice       = '932';
+params.keyboard             = 'Magic Keyboard';
+params.responseKeys         = {'1';'2';'3';'4';'6';'7';'8';'9'};
 
 %% stim file
 
