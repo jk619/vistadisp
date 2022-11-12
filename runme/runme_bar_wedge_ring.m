@@ -17,6 +17,9 @@ params.responseDevice       = '932';
 params.keyboard             = 'Magic Keyboard';
 params.responseKeys         = {'1';'2';'3';'4';'6';'7';'8';'9'};
 
+% If you don't know the names of the response box and keyboard use this
+% command % [keyboardIndices, productNames, ~] = GetKeyboardIndices;
+
 %% stim file
 
 %% run it
