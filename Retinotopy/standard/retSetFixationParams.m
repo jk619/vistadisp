@@ -26,6 +26,7 @@ function params = retSetFixationParams(params, expName)
 % note: this function doesn't have to be specific to retinotopy. could now
 % be renamed and moved to, say, vistadisp/exptTools2/experimentControl
 % except for last switch statement on bottom, which would need to be moved)
+% Nov, 2020, JWK :adding option for emoji with grid
 
 fixString  = {...
                 'disk'...
@@ -45,7 +46,8 @@ fixString  = {...
                 'right'...
                 'upper'...
                 'lower'...
-                'emoji'...
+                'only emoji'...
+                'emoji with grid'...
                 };
 
 if ~exist('params', 'var'), params = fixString; return; end
@@ -168,10 +170,19 @@ switch(lower(params.display.fixType))
         params.display.fixX = round(dim.x./2);
         params.display.fixY = dim.y - round(max(.5*(dim.y - dim.x),sz));
 
-    case 'emoji'
+    case 'emoji with grid'
         params.display.fixX = round(dim.x./2);
         params.display.fixY = round(dim.y./2);
         params.display.fixSizePixels = 120;
+        params.display.fixGrid = 1;
+        
+    case {'only emoji'}
+        params.display.fixX = round(dim.x./2);
+        params.display.fixY = round(dim.y./2);
+        params.display.fixSizePixels = 120;
+        params.display.fixGrid = 0;
+
+
        
         
     otherwise
