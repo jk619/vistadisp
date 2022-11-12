@@ -46,11 +46,15 @@ try
     
     % to skip annoying warning message on display (but not terminal)
     Screen('Preference','SkipSyncTests', 1);
+    Screen('Preference','TextRenderer', 0);
     
     % Open the screen
     params.display                = openScreen(params.display);
     params.display.devices        = params.devices;
     
+    if contains(params.fixation,'emoji')
+    [params, stimulus] = retLoadEmoji(params, stimulus);
+    end
     % to allow blending
     Screen('BlendFunction', params.display.windowPtr, GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
@@ -145,7 +149,7 @@ try
             Eyelink('StartRecording');
         end
       
-        [response, timing, quitProg] = showScanStimulus(params.display,stimulus,time0, timeFromT0); %#ok<ASGLU>
+        [response, timing, quitProg] = showScanStimulus(params.display,params.responseKeys,stimulus,time0, timeFromT0); %#ok<ASGLU>
         
         if params.doEyelink
             Eyelink('StopRecording');
@@ -189,7 +193,7 @@ return;
 
 
 
-
+   
 
 
 
