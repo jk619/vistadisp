@@ -1,3 +1,5 @@
+% This code is based on 
+%https://github.com/rmartins-net/Localizer-MT-MST-MT-proper-Psychophysics-Toolbox
 
 function MTloc(params,initials,ii)
 
