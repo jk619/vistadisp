@@ -1,7 +1,7 @@
 tbUse vistadisp
-% runme for bar wedge ring (NSD pRF design)
+% runme for bar wedge ring (NEI core grant)
 % 300TRs
-
+Screen('Preference', 'TextRenderer', 0); % For draw formatted text
 %% 
  
 params                      = retCreateDefaultGUIParams;
@@ -20,16 +20,13 @@ params.responseKeys         = {'1';'2';'3';'4';'6';'7';'8';'9'};
 % If you don't know the names of the response box and keyboard use this
 % command % [keyboardIndices, productNames, ~] = GetKeyboardIndices;
 
-%% stim file
-
 %% run it
-explist = {'bar_300TRs_5hz_1';'wedgering_300TRs_5hz_1';'bar_300TRs_10hz_1';'wedgering_300TRs_10hz_1';'bar_300TRs_15hz_1';'wedgering_300TRs_15hz_1'};
-
-for ii = 2:length(explist)
-    params.loadMatrix = sprintf('%s.mat', explist{ii});
+explist = {'run1_bar_300TRs_3hz.mat';'run1_wedgering_300TRs_3hz.mat';'run2_bar_300TRs_3hz.mat';...
+    'run2_wedgering_300TRs_3hz.mat';'run3_bar_300TRs_3hz.mat';'run3_wedgering_300TRs_3hz.mat'};
+  
+    
+for ii = 1:length(explist)
+    params.loadMatrix = sprintf('%s', explist{ii});
     ret(params);
 end
 
-
-% Edit in dispStringInCenter
-% Screen(?Preference?,?TextRenderer?, 0);
