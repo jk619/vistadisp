@@ -21,9 +21,9 @@ params.savefilepath         = '/Users/winawerlab/matlab/toolboxes/vistadisp/data
 
 %% run it
 
-params.initials = 'JK';
+params.initials = 'XX';
 
-for ii = 1:2
+for ii = 1:4
     params.sesNum = ii;
     params.loadMatrix = sprintf('run%i_fLOC_238TRs_2hz.mat',ii);
     ret(params);

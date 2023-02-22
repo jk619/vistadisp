@@ -15,7 +15,7 @@ params.savefilepath         = '/Users/winawerlab/matlab/toolboxes/vistadisp/data
 
 %% 
 
-initials = '';
+initials = 'XX';
 
 for ii = 1:3
     MTloc(params,initials,ii)

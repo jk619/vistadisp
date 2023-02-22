@@ -29,7 +29,7 @@ explist = {'run1_bar_300TRs_3hz.mat';'run1_wedgering_300TRs_3hz.mat';'run2_bar_3
 
 params.initials = 'JK';
 
-for ii = 1:2
+for ii = 1:6
     
     params.sesNum = ii;
     params.loadMatrix = sprintf('%s', explist{ii});
