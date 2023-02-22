@@ -17,7 +17,7 @@ params.responseDevice       = '932';
 params.keyboard             = 'Magic Keyboard';
 params.responseKeys         = {'1';'2';'3';'4';'6';'7';'8';'9'};
 params.displayGUI           = false;
-params.savefilepath         = '/Users/winawerlab/matlab/toolboxes/vistadisp/data_NEI/ret';
+params.savefilepath         = '/Users/winawerlab/matlab/toolboxes/vistadisp/data_NEI/ret'; %if not specified it will save files in vistarootpath dir
 
 % If you don't know the names of the response box and keyboard use this
 % command % [keyboardIndices, productNames, ~] = GetKeyboardIndices;
@@ -27,7 +27,7 @@ explist = {'run1_bar_300TRs_3hz.mat';'run1_wedgering_300TRs_3hz.mat';'run2_bar_3
     'run2_wedgering_300TRs_3hz.mat';'run3_bar_300TRs_3hz.mat';'run3_wedgering_300TRs_3hz.mat'};
   
 
-params.initials = 'JK';
+params.initials = 'XX'; % specify subjects initials
 
 for ii = 1:6
     
