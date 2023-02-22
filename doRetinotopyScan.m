@@ -10,6 +10,8 @@ function doRetinotopyScan(params)
 % 11.09.15 JW added a check for modality. If modality is ECoG, then call
 %           ShowScanStimulus with the argument timeFromT0 == false. See
 %           ShowScanStimulus for details. 
+% 02.20.23  JK Added option to specify subject ID inside params. sesNUM is
+%           also read from the main script and changed timeFromT0 to false.
 
 % defaults
 if ~exist('params', 'var'), error('No parameters specified!'); end
@@ -23,9 +25,15 @@ stimulus = retLoadStimulus(params);
 KbCheck;GetSecs;WaitSecs(0.001);%clear
 
 fprintf('\n')
-initials = input('Please enter subjct initials: ', 's');
-sesNum = input('Please enter session number: ', 's');
-sesNum = str2double(sesNum);
+if ~isfield(params,'initials')
+    initials = input('Please enter subjct initials: ', 's');
+else
+    initials = params.initials;
+end
+
+% sesNum = input('Please enter session number: ', 's');
+
+sesNum = double(params.sesNum);
 
 sesFileName = sprintf('%s%d', initials, sesNum);
 
@@ -82,6 +90,7 @@ try
         el = prepEyelink(params.display.windowPtr);
         
         ELfileName = sprintf('%s.edf', sesFileName);
+
         
         edfFileStatus = Eyelink('OpenFile', ELfileName);
         
@@ -142,7 +151,7 @@ try
         % go
         if isfield(params, 'modality') && strcmpi(params.modality, 'ecog')
             timeFromT0 = false;
-        else timeFromT0 = true;
+        else timeFromT0 = false;
         end
         
         if params.doEyelink
@@ -151,13 +160,17 @@ try
       
         [response, timing, quitProg] = showScanStimulus(params.display,params.responseKeys,stimulus,time0, timeFromT0); %#ok<ASGLU>
         
+        savename = fullfile(params.savefilepath, ...
+            sprintf('%s_%s', sesFileName, datestr(now,30)));
+        
+        
         if params.doEyelink
+            
             Eyelink('StopRecording');
             Eyelink('ReceiveFile', ELfileName, fileparts(vistadispRootPath) ,1);
-        
             Eyelink('CloseFile');
-        
             Eyelink('Shutdown');
+            movefile(sprintf('%s/%s',fileparts(vistadispRootPath),ELfileName),sprintf('%s.edf',savename))
         end
         
         % reset priority
@@ -168,9 +181,8 @@ try
         fprintf('[%s]: percent correct: %.1f %%, reaction time: %.1f secs\n',mfilename,pc,rc);
         
         % save
-        if params.savestimparams,
-            filename = fullfile(fileparts(vistadispRootPath), ...
-                sprintf('%s_%s.mat', sesFileName, datestr(now,30)));
+        if params.savestimparams
+            filename = sprintf('%s.mat',savename);
             save(filename);                % save parameters
             fprintf('[%s]:Saving in %s.\n',mfilename,filename);
         end
