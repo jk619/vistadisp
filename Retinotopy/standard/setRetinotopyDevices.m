@@ -45,8 +45,6 @@ params.devices.keyInputExternal = deviceNumber;
 
 
 deviceString        =  params.keyboard;
-
-
     
 [keyboardIndices, productNames, ~] = GetKeyboardIndices;
 for i=1:length(productNames)                                               % for each possible device

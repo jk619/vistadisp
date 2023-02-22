@@ -10,8 +10,10 @@ function params = ret(params)
 % 10/2005 SOD Several changes, including adding gui.
 % 1/2009 JW   Added optional input arg 'params'. This allows you to
 %             specify your parameters in advance so that the GUI loads up
-%             with the values you want. 
-% 
+%             with the values you want.
+% 02/2023 JK: Added option to avoid displaying GUI
+%         params.displayGUI
+%
 % Examples:
 %
 % 1. open the GUI, specify your expt, and click OK:
@@ -20,7 +22,7 @@ function params = ret(params)
 %
 % 2. Specify your experimental params in advance, open the GUI, and then
 % click OK:
-%   
+%
 %   params = retCreateDefaultGUIParams
 %   % modify fields as you like, e.g.
 %   params.fixation = 'dot';
@@ -35,8 +37,10 @@ function params = ret(params)
 
 % get some parameters from graphical interface
 if ~exist('params', 'var'), params = []; end
-params = retMenu(params);
 
+if params.displayGUI
+    params = retMenu(params);
+end
 % if user aborted GUI, exit gracefully
 if notDefined('params'), return; end
 
