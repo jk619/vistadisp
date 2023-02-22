@@ -71,7 +71,7 @@ try
     % set dot field parameters
     % ------------------------
     
-    nframes     = 18000; % number of animation frames in loop
+    nframes     = 1800; % number of animation frames in loop
     mon_width   = 60;   % horizontal dimension of viewable screen (cm)
     v_dist      = 83.5;   % viewing distance (cm)
     dot_speed   = 5; %7;    % dot speed (deg/sec)
@@ -205,7 +205,10 @@ try
    
         el = prepEyelink(w);
         
-        ELfileName = sprintf('%s.edf', num2str(ii));
+        sesFileName = sprintf('%s%d%s', initials, sesNum);
+
+            
+        ELfileName = sprintf('%s.edf', sesFileName);
         
         edfFileStatus = Eyelink('OpenFile', ELfileName);
         
@@ -407,13 +410,22 @@ try
         
     end
     
+    d = datetime;
+    d.Format = 'uuuuMMdd';
+    t = datetime;
+    t.Format = 'HHmmss';
+    datestring = sprintf('%sT%s',d,t);
+    savename = sprintf('%s/%s%i_%s',params.savefilepath,initials,sesNum,datestring);
+    
+    
+
     if params.doEyelink
         Eyelink('StopRecording');
         Eyelink('ReceiveFile', ELfileName, fileparts(vistadispRootPath) ,1);
-        
         Eyelink('CloseFile');
-        
         Eyelink('Shutdown');
+        movefile(sprintf('%s/%s',fileparts(vistadispRootPath),ELfileName),sprintf('%s.edf',savename))
+
     end
     
     Priority(0);
@@ -447,23 +459,8 @@ stimulus.exp = 'MT_loc';
 stimulus.flip = flip;
 
 
-d = datetime;
-d.Format = 'uuuuMMdd';
-t = datetime;
-t.Format = 'HHmmss';
-datestring = sprintf('%sT%s',d,t);
-savename = sprintf('/Users/winawerlab/matlab/toolboxes/%s%i_%s',initials,sesNum,datestring);
-save(savename,'stimulus')
+save(sprintf('%s.mat',savename),'stimulus')
 
-if params.doEyelink
-    
-    Eyelink('ReceiveFile', ELfileName, savename ,1);
-    
-    Eyelink('CloseFile');
-    
-    Eyelink('Shutdown');
-    
-end
 end
 
 function wait4T(keyboard)
