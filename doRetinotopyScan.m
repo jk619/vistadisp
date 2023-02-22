@@ -160,9 +160,13 @@ try
       
         [response, timing, quitProg] = showScanStimulus(params.display,params.responseKeys,stimulus,time0, timeFromT0); %#ok<ASGLU>
         
-        savename = fullfile(params.savefilepath, ...
-            sprintf('%s_%s', sesFileName, datestr(now,30)));
-        
+        if ~isfield(params,'savefilepath')
+            savename = fullfile(fileparts(vistadispRootPath), ...
+                sprintf('%s_%s', sesFileName, datestr(now,30)));
+        else
+            savename = fullfile(params.savefilepath, ...
+                sprintf('%s_%s', sesFileName, datestr(now,30)));
+        end
         
         if params.doEyelink
             
