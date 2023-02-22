@@ -71,7 +71,7 @@ try
     % set dot field parameters
     % ------------------------
     
-    nframes     = 1800; % number of animation frames in loop
+    nframes     = 18000; % number of animation frames in loop
     mon_width   = 60;   % horizontal dimension of viewable screen (cm)
     v_dist      = 83.5;   % viewing distance (cm)
     dot_speed   = 5; %7;    % dot speed (deg/sec)
