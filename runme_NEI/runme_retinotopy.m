@@ -27,7 +27,7 @@ explist = {'run1_bar_300TRs_3hz.mat';'run1_wedgering_300TRs_3hz.mat';'run2_bar_3
     'run2_wedgering_300TRs_3hz.mat';'run3_bar_300TRs_3hz.mat';'run3_wedgering_300TRs_3hz.mat'};
   
 
-params.initials = 'XX'; % specify subjects initials
+params.initials = 'XX'; % specify subject initials
 
 for ii = 1:6
     
