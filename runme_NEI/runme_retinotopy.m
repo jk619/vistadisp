@@ -26,6 +26,7 @@ params.savefilepath         = '/Users/winawerlab/matlab/toolboxes/vistadisp/data
 explist = {'run1_bar_300TRs_3hz.mat';'run1_wedgering_300TRs_3hz.mat';'run2_bar_300TRs_3hz.mat';...
     'run2_wedgering_300TRs_3hz.mat';'run3_bar_300TRs_3hz.mat';'run3_wedgering_300TRs_3hz.mat'};
 
+
 params.initials = 'XX'
 for ii = 1:6
 
