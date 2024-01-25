@@ -1,4 +1,4 @@
-tbUse vistadisp
+% tbUse vistadisp
 params.devices = getDevices;
 params.responseDevice      = '932';
 params.keyboard            = 'Magic Keyboard';
@@ -12,7 +12,7 @@ while 1
         if(ssKeyIsDown)
             
             keypressed = KbName(ssKeyCode);
-            Index = find(contains(params.mykeys,keypressed(1)));
+            Index = find(contains(params.responseKeys,keypressed(1)));
             if ~isempty(Index)
                             
             disp('This is subject response controller')

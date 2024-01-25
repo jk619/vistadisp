@@ -14,7 +14,7 @@ params.experiment           = 'experiment from file';
 params.doEyelink            = true;
 params.period               = 300;
 params.responseDevice       = '932';
-params.keyboard             = 'Magic Keyboard';
+params.keyboard             = '932'; %'Magic Keyboard';
 params.responseKeys         = {'1';'2';'3';'4';'6';'7';'8';'9'};
 params.displayGUI           = false;
 params.savefilepath         = '/Users/winawerlab/matlab/toolboxes/vistadisp/data_NEI/ret'; %if not specified it will save files in vistarootpath dir
@@ -25,15 +25,12 @@ params.savefilepath         = '/Users/winawerlab/matlab/toolboxes/vistadisp/data
 %% run it
 explist = {'run1_bar_300TRs_3hz.mat';'run1_wedgering_300TRs_3hz.mat';'run2_bar_300TRs_3hz.mat';...
     'run2_wedgering_300TRs_3hz.mat';'run3_bar_300TRs_3hz.mat';'run3_wedgering_300TRs_3hz.mat'};
-  
 
-params.initials = 'XX'; % specify subjects initials
-
+params.initials = 'XX'
 for ii = 1:6
-    
+
     params.sesNum = ii;
     params.loadMatrix = sprintf('%s', explist{ii});
     ret(params);
-    
-end
 
+end

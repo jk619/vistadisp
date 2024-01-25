@@ -1,6 +1,6 @@
 tbUse vistadisp
 % runme for fLOC
-% 228 TRs
+% 240 TRs
 Screen('Preference', 'TextRenderer', 0); % For draw formatted text
 %% 
 
@@ -8,11 +8,11 @@ params                      = retCreateDefaultGUIParams;
 params.fixation             = 'dot';
 params.tr                   = 1;
 params.skipSyncTests        = 0;
-params.calibration          = 'CBI_Propixx';
+params.calibration          = 'CBI_P555q5qropixx';
 params.prescanDuration      = 0;
 params.experiment           = 'experiment from file';
 params.doEyelink            = true;
-params.period               = 238;
+params.period               = 240;
 params.responseDevice       = '932';
 params.keyboard             = 'Magic Keyboard';
 params.responseKeys         = {'1';'2';'3';'4';'6';'7';'8';'9'};
