@@ -8,7 +8,7 @@ params                      = retCreateDefaultGUIParams;
 params.fixation             = 'dot';
 params.tr                   = 1;
 params.skipSyncTests        = 0;
-params.calibration          = 'CBI_P555q5qropixx';
+params.calibration          = 'CBI_Propixx';
 params.prescanDuration      = 0;
 params.experiment           = 'experiment from file';
 params.doEyelink            = true;
@@ -25,7 +25,7 @@ params.initials = 'XX'; % specify subjects initials
 
 for ii = 1:4
     params.sesNum = ii;
-    params.loadMatrix = sprintf('run%i_fLOC_238TRs_2hz.mat',ii);
+    params.loadMatrix = sprintf('run%i_fLOC_240TRs_2hz.mat',ii);
     ret(params);
 end
 
