@@ -19,7 +19,7 @@ switch display
         while ~kb.keyIsDown
             [kb,~] = CheckTrigger_MRI_CBI(kb); % if response with response button MRI
             [kb,~] = CheckKeyboard(kb); % if response with keyboard
-            fprintf('>>>>>>>>>>> waiting for the trigger from the scanner.... \n')
+%             fprintf('>>>>>>>>>>> waiting for the trigger from the scanner.... \n')
         end
         fprintf('>>>>>>>>>>> trigger detected \n')
 
