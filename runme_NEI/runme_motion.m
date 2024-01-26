@@ -8,7 +8,6 @@ params.doEyelink = 1;
 Screen('Preference', 'TextRenderer', 0); % For draw formatted text
 
 addpath(genpath('./MT_loc/HelperToolbox'));
-% BASE =
 
 subID = 'XX';
 runs = 4;
