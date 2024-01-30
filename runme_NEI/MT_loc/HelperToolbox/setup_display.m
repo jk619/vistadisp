@@ -29,8 +29,8 @@ switch(Display) %Display Parameters
         VP.whiteValue = 255;
         VP.stereoMode = 0;
         VP.multiSample = 32;      
-%         VP.fullscreen = [0 0 800 500];
-        VP.fullscreen = [];
+        VP.fullscreen = [0 0 800 500];
+%         VP.fullscreen = [];
 
     case 3 % NYU CBI
         VP.screenDistance = 880;   %mm

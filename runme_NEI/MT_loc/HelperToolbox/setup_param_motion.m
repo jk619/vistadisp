@@ -1,8 +1,8 @@
 function [VP pa] = setup_param_motion(VP)
 
 % set up timing
-pa.totalTime = 240;                                                        % code will run this many secs + X secs of blank
-pa.blockDuration = 15;                                                     % duration for one block in secs
+pa.totalTime = 216;                                                        % code will run this many secs + X secs of blank
+pa.blockDuration = 12;                                                     % duration for one block in secs
 pa.nRepBlock = round(pa.totalTime./pa.blockDuration);                      % how many blocks 
 pa.responseMat = zeros(round(pa.blockDuration*VP.frameRate*pa.nRepBlock),2); % if we want to record button press
 pa.totalTime = pa.totalTime + pa.blockDuration;                            % real total time = stimulus + blank
@@ -61,7 +61,7 @@ pa.conditionOrder = repmat(repelem([1 2 3], 1, 2),1,round(pa.nRepBlock/5)); % 1 
 pa.conditionOrder(2:2:end) = 5;
 
 find_blank = find(pa.conditionOrder == 5);
-insert_blankCond = repmat([11 12 13],[1 length(find_blank)/3]);
+insert_blankCond = repmat([4 5 6],[1 length(find_blank)/3]);
 
 for f = 1 : length(insert_blankCond)
     pa.conditionOrder(find_blank(f)) = insert_blankCond(f);

@@ -4,17 +4,17 @@ tbUse vistadisp
 clearvars; close all; clc
 debugTrigger = 0;
 display = 3;   % 1-AD % 2-laptop % 3-NY
-params.doEyelink = 1;
+params.doEyelink = 0;
 Screen('Preference', 'TextRenderer', 0); % For draw formatted text
 
 addpath(genpath('./MT_loc/HelperToolbox'));
 
-subID = 'XX';
+subID = 'JH';
 runs = 4;
 mydir  = '/Users/winawerlab/matlab/toolboxes/vistadisp/data_NEI/mot';
 
 %%
-for r = 1 : 4
+for r = 1 : runs
     
     
     filename = [mydir '/sub-' subID,'_task-motion_' 'run-' num2str(r), '_' datestr(now,30) '.mat'];
@@ -103,7 +103,7 @@ for r = 1 : 4
             
             while GetSecs-startTime < pa.blockDuration                         % block ends when time's up
                 
-                if whichLoc ~= [11 12 13]                                           % whichLoc 5 is static
+                if whichLoc ~= [4 5 6]                                           % whichLoc 5 is static
                     
                     if pa.dotdies == 1
                         pa.lifetime = pa.lifetime + 1/VP.frameRate;
@@ -162,19 +162,19 @@ for r = 1 : 4
                     Screen('DrawLines', VP.window, pa.fixationCross, 2, pa.fixationColor(iseven(whichColor)+1,:), [VP.Rect(3)/2, VP.Rect(4)/2]); % fixation cross
                     Screen('DrawingFinished', VP.window); % Tell PTB that no further drawing commands will follow before Screen('Flip')
                     
-                elseif whichLoc == 11
+                elseif whichLoc == 4
                     
                     Screen('DrawDots',VP.window, [x+VP.Rect(3)/2;y+VP.Rect(4)/2], pa.dotDiameter, pa.dotColor, [0 0], 2); % dots
                     Screen('DrawLines', VP.window, pa.fixationCross, 2, pa.fixationColor(iseven(whichColor)+1,:), [VP.Rect(3)/2, VP.Rect(4)/2]); % fixation cross
                     Screen('DrawingFinished', VP.window); % Tell PTB that no further drawing commands will follow before Screen('Flip')
                     
-                elseif whichLoc == 12
+                elseif whichLoc == 5
                     
                     Screen('DrawDots',VP.window, [x+VP.Rect(3)/2;y+VP.Rect(4)/2], pa.dotDiameter, pa.dotColor, [pa.locOfStimPer*VP.pixelsPerDegree 0], 2); % dots
                     Screen('DrawLines', VP.window, pa.fixationCross, 2, pa.fixationColor(iseven(whichColor)+1,:), [VP.Rect(3)/2, VP.Rect(4)/2]); % fixation cross
                     Screen('DrawingFinished', VP.window); % Tell PTB that no further drawing commands will follow before Screen('Flip')
                     
-                elseif whichLoc == 13
+                elseif whichLoc == 6
                     
                     Screen('DrawDots',VP.window, [x+VP.Rect(3)/2;y+VP.Rect(4)/2], pa.dotDiameter, pa.dotColor, [-pa.locOfStimPer*VP.pixelsPerDegree 0], 2); % dots
                     Screen('DrawLines', VP.window, pa.fixationCross, 2, pa.fixationColor(iseven(whichColor)+1,:), [VP.Rect(3)/2, VP.Rect(4)/2]); % fixation cross
