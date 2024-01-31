@@ -42,9 +42,9 @@ for r = 1 : runs
         %
         % %     Calibrate the eye tracker
 
-        if r == 1
-            EyelinkDoTrackerSetup(el);
-        end
+        
+        EyelinkDoTrackerSetup(el);
+        
         %
         % %     Throw an error if calibration failed
         if s~=0
