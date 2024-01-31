@@ -41,7 +41,10 @@ for r = 1 : runs
         s = Eyelink('command', 'calibration_type=HV5');
         %
         % %     Calibrate the eye tracker
-        EyelinkDoTrackerSetup(el);
+
+        if r == 1
+            EyelinkDoTrackerSetup(el);
+        end
         %
         % %     Throw an error if calibration failed
         if s~=0
