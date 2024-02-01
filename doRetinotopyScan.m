@@ -68,6 +68,8 @@ try
     
     %% Initialize EyeLink if requested
     if params.doEyelink
+        
+        if params.sesNum == 1
         fprintf('\n[%s]: Setting up Eyelink..\n',mfilename)
         
         Eyelink('SetAddress','192.168.1.5');
@@ -88,6 +90,8 @@ try
         end
    
         el = prepEyelink(params.display.windowPtr);
+        
+        end
         
         ELfileName = sprintf('%s.edf', sesFileName);
 
@@ -173,8 +177,12 @@ try
             Eyelink('StopRecording');
             Eyelink('ReceiveFile', ELfileName, fileparts(vistadispRootPath) ,1);
             Eyelink('CloseFile');
-            Eyelink('Shutdown');
             movefile(sprintf('%s/%s',fileparts(vistadispRootPath),ELfileName),sprintf('%s.edf',savename))
+            
+            if params.sesNum == 4
+                Eyelink('Shutdown');
+            end
+ 
         end
         
         % reset priority
