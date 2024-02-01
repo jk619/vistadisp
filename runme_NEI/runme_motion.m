@@ -4,12 +4,12 @@ tbUse vistadisp
 clearvars; close all; clc
 debugTrigger = 0;
 display = 3;   % 1-AD % 2-laptop % 3-NY
-params.doEyelink = 0;
+params.doEyelink = 1;
 Screen('Preference', 'TextRenderer', 0); % For draw formatted text
 
 addpath(genpath('./MT_loc/HelperToolbox'));
 
-subID = 'JH';
+subID = 'XX';
 runs = 4;
 mydir  = '/Users/winawerlab/matlab/toolboxes/vistadisp/data_NEI/mot';
 
@@ -28,6 +28,8 @@ for r = 1 : runs
     
     
     if params.doEyelink
+        
+        if r == 1
         
         fprintf('\n[%s]: Setting up Eyelink..\n',eyeLinkFileName)
         
@@ -50,6 +52,8 @@ for r = 1 : runs
         
         el = prepEyelink(VP.window);
         
+        end
+        
         sesFileName = sprintf('%s%d%s', subID, num2str(r));
         
         
@@ -67,7 +71,8 @@ for r = 1 : runs
             fprintf('\n[%s]: Succesfully openend Eyelink file..\n',mfilename)
         end
         
-        cal = EyelinkDoTrackerSetup(el);
+%         cal = EyelinkDoTrackerSetup(el);
+        
         
     end
 
@@ -210,9 +215,11 @@ for r = 1 : runs
         Eyelink('StopRecording');
         Eyelink('ReceiveFile', ELfileName, fileparts(filename) ,1);
         Eyelink('CloseFile');
-        Eyelink('Shutdown');
         movefile(sprintf('%s/%s',fileparts(filename),ELfileName),sprintf('%s.edf',[mydir '/' subID,'_mot_' 'run-' num2str(r)]))
-        
+        if r == 4
+        Eyelink('Shutdown');
+        end
+
     end
     
     
