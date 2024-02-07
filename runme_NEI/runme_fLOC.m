@@ -20,8 +20,8 @@ params.displayGUI           = false;
 params.savefilepath         = '/Users/winawerlab/matlab/toolboxes/vistadisp/data_NEI/floc'; %if not specified it will save files in vistarootpath dir
 
 %% run it
-
-params.initials = 'XX';
+wlsubjnum = input('What is the subject wlsubj number? \n\n','s');
+params.initials = sprintf('%s_',wlsubjnum);
 
 for ii = 1:4
     params.sesNum = ii;

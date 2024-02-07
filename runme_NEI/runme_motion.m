@@ -9,7 +9,9 @@ Screen('Preference', 'TextRenderer', 0); % For draw formatted text
 
 addpath(genpath('./MT_loc/HelperToolbox'));
 
-subID = 'XX';
+wlsubjnum = input('What is the subject wlsubj number? \n\n','s');
+subID = sprintf('%s_',wlsubjnum);
+
 runs = 4;
 mydir  = '/Users/winawerlab/matlab/toolboxes/vistadisp/data_NEI/mot';
 
@@ -17,8 +19,8 @@ mydir  = '/Users/winawerlab/matlab/toolboxes/vistadisp/data_NEI/mot';
 for r = 1 : runs
     
     
-    filename = [mydir '/sub-' subID,'_task-motion_' 'run-' num2str(r), '_' datestr(now,30) '.mat'];
-    eyeLinkFileName = sprintf('%s.edf',[subID,'_mot_' 'run-' num2str(r)]);
+    filename = [mydir '/sub-' subID,'task-motion_' 'run-' num2str(r), '_' datestr(now,30) '.mat'];
+    eyeLinkFileName = sprintf('%s.edf',[subID,'mot_' 'run-' num2str(r)]);
     %% Setup display and parameters
     skipSync = 1;                                                              % skip Sync for debugging
     VP = setup_display(skipSync, display ,debugTrigger);                       % set up display
@@ -145,7 +147,7 @@ for r = 1 : runs
                 end
                 
                 % change the fixation color at a random time (2 to 12 secs)
-                if GetSecs-taskLastChange > (2+rand*10)
+                if GetSecs-taskLastChange > (6+rand*15)
                     whichColor = whichColor+1;
                     taskLastChange = GetSecs;
                 else
