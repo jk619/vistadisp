@@ -5,7 +5,7 @@ for view = 0:1
 %     Screen('DrawTexture', VP.window, VP.bg);
     Screen('DrawDots',VP.window, pa.fixationDot, pa.dotDiameter*2, [VP.gray VP.gray VP.gray], [], 2);
     Screen('DrawLines', VP.window, pa.fixationCross, 2, pa.fixationColor(1,:), [VP.Rect(3)/2, VP.Rect(4)/2]);
-    Screen('DrawText', VP.window, ['please press 5 key to begin.'],VP.Rect(3)./2-150,VP.Rect(4)/2+50,[VP.whiteValue VP.whiteValue VP.whiteValue]);
+    Screen('DrawText', VP.window, ['Please wait.'],VP.Rect(3)./2-150,VP.Rect(4)/2+50,[VP.whiteValue VP.whiteValue VP.whiteValue]);
 end
 
 VP.vbl = Screen('Flip', VP.window, [], 0);
