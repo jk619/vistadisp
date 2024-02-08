@@ -1,7 +1,8 @@
 % moving vs. static
-% outward -> static -> inward -> static -> CW -> static -> CCW -> static
-tbUse vistadisp
+% central moving -> central stationary -> right moving -> right stationary -> left moving -> left stationary [repated 3 times]
 % code was written based on Puti's motion localizer
+
+tbUse vistadisp
 clearvars; close all; clc
 debugTrigger = 0;
 display = 3;   % 1-AD % 2-laptop % 3-NY
