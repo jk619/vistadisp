@@ -19,6 +19,9 @@ params.responseKeys         = {'1';'2';'3';'4';'6';'7';'8';'9'};
 params.displayGUI           = false;
 params.savefilepath         = '/Users/winawerlab/matlab/toolboxes/vistadisp/data_ajay/'; %if not specified it will save files in vistarootpath dir
 
+if ~exist(params.savefilepath,'dir')
+    mkdir(params.savefilepath)
+end
 %% run it
 wlsubjnum = input('What is the subject wlsubj number? \n\n','s');
 params.initials = sprintf('%s_',wlsubjnum);
