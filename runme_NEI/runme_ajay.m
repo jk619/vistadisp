@@ -23,7 +23,7 @@ params.savefilepath         = '/Users/winawerlab/matlab/toolboxes/vistadisp/data
 wlsubjnum = input('What is the subject wlsubj number? \n\n','s');
 params.initials = sprintf('%s_',wlsubjnum);
 
-for ii = 1:4
+for ii = 1:11
     params.sesNum = ii;
     params.loadMatrix = sprintf('run_%i_SFnoise_396TRs_1hz_1080.mat',ii);
     ret(params);
