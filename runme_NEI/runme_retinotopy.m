@@ -31,6 +31,7 @@ explist = {'run1_bar_300TRs_3hz.mat';'run1_wedgering_300TRs_3hz.mat';'run2_bar_3
 
 
 params.initials = 'XX'
+
 for ii = 1:6
 
     params.sesNum = ii;
