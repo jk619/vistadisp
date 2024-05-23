@@ -17,6 +17,7 @@ params.keyboard             = 'Magic Keyboard'; %'Magic Keyboard';
 
 %% the above responseDevice and keyboard should be set to what psychtoolbox sees as a device
 % [keyboardIndices, productNames, ~] = GetKeyboardIndices;
+% substitute both with whaterver comes out of productNames
 
 params.responseKeys         = {'1';'2';'3';'4';'6';'7';'8';'9'};
 params.displayGUI           = false;
