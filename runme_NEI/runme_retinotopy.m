@@ -29,8 +29,8 @@ explist = {'run1_bar_300TRs_3hz_1080px.mat';'run1_wedgering_300TRs_3hz_1080px.ma
     'run2_wedgering_300TRs_3hz_1080px.mat';'run3_bar_300TRs_3hz_1080px.mat';'run3_wedgering_300TRs_3hz_1080px.mat'};
 
 
-params.initials = 'XX'
-
+params.initials = 'XX';
+commandwindow
 for ii = 1:6
 
     params.sesNum = ii;
