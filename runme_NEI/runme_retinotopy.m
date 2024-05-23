@@ -21,7 +21,7 @@ params.keyboard             = 'Magic Keyboard'; %'Magic Keyboard';
 
 params.responseKeys         = {'1';'2';'3';'4';'6';'7';'8';'9'};
 params.displayGUI           = false;
-params.savefilepath         = './../data/ret'; %if not specified it will save files in vistarootpath dir
+params.savefilepath         = './data/'; %if not specified it will save files in vistarootpath dir
 
 % If you don't know the names of the response box and keyboard use this
 % command % [keyboardIndices, productNames, ~] = GetKeyboardIndices;
