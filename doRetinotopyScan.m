@@ -133,7 +133,7 @@ try
     
     for n = 1:params.repetitions,
         % set priority
-        Priority(params.runPriority);
+        % Priority(params.runPriority);
         
         % reset colormap?
         retResetColorMap(params);
