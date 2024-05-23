@@ -1,4 +1,3 @@
-tbUse vistadisp
 % runme for bar wedge ring (NEI core grant)
 % 300TRs
 Screen('Preference', 'TextRenderer', 0); % For draw formatted text
@@ -8,16 +7,20 @@ params                      = retCreateDefaultGUIParams;
 params.fixation             = 'dot with grid';
 params.tr                   = 1;
 params.skipSyncTests        = 0;
-params.calibration          = 'CBI_Propixx';
+params.calibration          = '';
 params.prescanDuration      = 0;
 params.experiment           = 'experiment from file';
 params.doEyelink            = true;
 params.period               = 300;
-params.responseDevice       = '932';
-params.keyboard             = '932'; %'Magic Keyboard';
+params.responseDevice       = 'Magic Keyboard';
+params.keyboard             = 'Magic Keyboard'; %'Magic Keyboard';
+
+%% the above responseDevice and keyboard should be set to what psychtoolbox sees as a device
+% [keyboardIndices, productNames, ~] = GetKeyboardIndices;
+
 params.responseKeys         = {'1';'2';'3';'4';'6';'7';'8';'9'};
 params.displayGUI           = false;
-params.savefilepath         = '/Users/winawerlab/matlab/toolboxes/vistadisp/data_NEI/ret'; %if not specified it will save files in vistarootpath dir
+params.savefilepath         = './../data/ret'; %if not specified it will save files in vistarootpath dir
 
 % If you don't know the names of the response box and keyboard use this
 % command % [keyboardIndices, productNames, ~] = GetKeyboardIndices;
