@@ -27,8 +27,8 @@ params.savefilepath         = './data/'; %if not specified it will save files in
 % command % [keyboardIndices, productNames, ~] = GetKeyboardIndices;
 
 %% run it
-explist = {'run1_bar_300TRs_3hz.mat';'run1_wedgering_300TRs_3hz.mat';'run2_bar_300TRs_3hz.mat';...
-    'run2_wedgering_300TRs_3hz.mat';'run3_bar_300TRs_3hz.mat';'run3_wedgering_300TRs_3hz.mat'};
+explist = {'run1_bar_300TRs_3hz_1080px.mat';'run1_wedgering_300TRs_3hz_1080px.mat';'run2_bar_300TRs_3hz_1080px.mat';...
+    'run2_wedgering_300TRs_3hz_1080px.mat';'run3_bar_300TRs_3hz_1080px.mat';'run3_wedgering_300TRs_3hz_1080px.mat'};
 
 
 params.initials = 'XX'
