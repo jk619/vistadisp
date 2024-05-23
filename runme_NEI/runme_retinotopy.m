@@ -23,8 +23,6 @@ params.responseKeys         = {'1';'2';'3';'4';'6';'7';'8';'9'};
 params.displayGUI           = false;
 params.savefilepath         = './data/'; %if not specified it will save files in vistarootpath dir
 
-% If you don't know the names of the response box and keyboard use this
-% command % [keyboardIndices, productNames, ~] = GetKeyboardIndices;
 
 %% run it
 explist = {'run1_bar_300TRs_3hz_1080px.mat';'run1_wedgering_300TRs_3hz_1080px.mat';'run2_bar_300TRs_3hz_1080px.mat';...
